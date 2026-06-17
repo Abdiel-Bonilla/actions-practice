@@ -1,0 +1,14 @@
+name: Run Python Script
+on: [push]
+jobs:
+  runs-python-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inicio
+        run: echo "Comienzaaaa!"
+      - name: Clona el repositorio
+        uses: actions/checkout@v6
+      - name: Muestra archivos
+        run: ls -al
+      - name: Ejecuta el script 
+        run: python app.py
