@@ -4,7 +4,13 @@ jobs:
   hello-world-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World Action
-        run: echo "Hello, World!"
+      - run: echo "Hello, World!"
       - run: echo "Ando probando actions XD"
       - run: echo "Siuuuuuuuuuuuu"
+      - name: Crea uno archivos
+        run: touch file1.txt
+      - name: Guarda el listado de archivos
+        run: ls -al > file2.txt
+      - run: echo "Agrego una linea a file2.txt" >> file2.txt
+      - run: cat file2.txt
+      - run: ls -al
