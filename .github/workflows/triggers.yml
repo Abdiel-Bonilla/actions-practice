@@ -1,0 +1,27 @@
+name: Aprendiendo Triggers
+run-name: Ejecución por evento de ${{ github.actor }}
+
+# 1. Definición de los 3 Triggers requeridos
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: 'Nombre de la persona que ejecuta el workflow'
+        required: true
+        default: 'Usuario'
+
+jobs:
+  demostracion-triggers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Mensaje de confirmación
+        run: echo "El workflow se activó correctamente gracias a uno de los triggers configurados."
